@@ -8,6 +8,7 @@ import {
 
 import Home from "./pages/Home/index"
 import Login from "./pages/Login/index"
+import { GlobalStyle } from "./styles/global";
 
 const AppRouter = withRouter(({ location }) => (
   <Switch location={location}>
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <GlobalStyle/>
         <AppRouter />
       </Router>
     );
