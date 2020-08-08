@@ -21,21 +21,23 @@ const Title = styled.h1`
   font-weight: 700;
 `;
 
-const Button = styled.button`
-  display: inline-flex;
+const Button = styled.a`
+  display: inline-grid;
   text-align: center;
   align-items: center;
   background-color: #1db954;
   border-radius: 999px;
-  padding: 0 60px;
   min-height: 54px;
-  min-width: 160px;
+  width: 200px;
+  text-align: center;
   text-transform: uppercase;
   cursor: pointer;
   font-size: 14px;
   letter-spacing: 3px;
   transition: background-color 200ms ease-in-out;
   margin-top: 40px;
+  text-decoration:none;
+  color:black;
 
   &:hover {
     background-color: #1ed760;
