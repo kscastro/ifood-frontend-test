@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import { LOCAL_STORAGE_USER_KEY, URL_PLAYLIST } from "../../utils/constants";
 import { Header } from "../../components/Header";
-import { Container } from "./styles";
+import { Container, ContainerSearch } from "./styles";
 import { Card } from "../../components/Card";
+import Input from "../../components/Input";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       playlists: "",
+      value: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
   async componentDidMount() {
@@ -29,19 +36,21 @@ class Home extends Component {
       .then((data) => data.playlists)
       .catch((erro) => console.error(erro));
 
-     
-      if(playlists === undefined){
-        this.props.history.push("/login")
-      }
+    if (playlists === undefined) {
+      this.props.history.push("/login");
+    }
 
     this.setState({ playlists: playlists });
+
   }
 
   render() {
     return (
       <>
-        {console.log(this.state.playlists)}
         <Header />
+        <ContainerSearch>
+          <Input.Search onChange={this.handleChange} value={this.state.value} />
+        </ContainerSearch>
         <Container>
           {this.state.playlists
             ? this.state.playlists.items.map((playlist) => (

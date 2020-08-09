@@ -10,4 +10,11 @@ const Container = styled.section`
   padding: 15px;
 `;
 
-export { Container };
+const ContainerSearch = styled.section`
+  max-width: 960px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+`;
+
+export { Container, ContainerSearch };
