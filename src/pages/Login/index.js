@@ -1,30 +1,23 @@
 import React, { Component } from "react";
-import { Header } from "../../components/Header";
 import { Container, Title, Button } from "./styles";
 import hash from "../../utils/index";
-import { URL_AUTH, CLIENT_ID, URL_REDIRECT } from "../../utils/constants";
+import { URL_AUTH, CLIENT_ID, URL_REDIRECT, LOCAL_STORAGE_USER_KEY } from "../../utils/constants";
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      token: null,
-    };
-  }
+  
 
   componentDidMount() {
     let token = hash.access_token;
 
     if (token) {
-      window.localStorage.setItem("ACCESS_TOKEN_STORAGE_KEY", token)
-      this.props.history.push("/home")
+      window.localStorage.setItem(LOCAL_STORAGE_USER_KEY, token);
+      this.props.history.push("/");
     }
   }
 
   render() {
     return (
       <>
-        <Header />
         <Container>
           <Title>SpotiFood</Title>
           <Button
